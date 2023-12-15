@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{ base :: layout(~{::title},~{::section})}">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Edit Page</title>
+</head>
+
+<body>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<div class="card">
+						<div class="card-header text-center">
+							<p class="fs-4"> Edit Employee</p>
+						</div>
+						<div class="card-body">
+							<form action="/update" method="post">
+								<input type="hidden" name="id" th:value="${emp.id}">
+								<div class="mb-3">
+									<label for="exampleInputPassword1" class="form-label">Full Name</label>
+									<input type="text" class="form-control" name="name" id="exampleInputPassword1"
+										th:value="${emp.name}">
+								</div>
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">Email address</label>
+									<input type="email" class="form-control" name="email" id="exampleInputEmail1"
+										th:value="${emp.email}" aria-describedby="emailHelp">
+									<div id="emailHelp" class="form-text">We'll never share your email with
+										anyone else.
+									</div>
+								</div>
+
+								<div class="mb-3">
+									<label for="exampleInputPassword1" class="form-label">Gender</label>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" type="radio" name="gender" id="inlineCheckbox1"
+											value="m" th:attrappend="checked = ${emp.gender=='m' ? 'checked' : ''}">
+										<label class="form-check-label" for="inlineCheckbox1">Male</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" type="radio" name="gender" id="inlineCheckbox2"
+											value="f" th:attrappend="checked = ${emp.gender=='f' ? 'checked' : ''}">
+										<label class="form-check-label" for="inlineCheckbox2">Female</label>
+									</div>
+
+								</div>
+								<div class="mb-3">
+									<label for="exampleInputPassword1" class="form-label">Role</label>
+									<input type="text" class="form-control" name="role" th:value="${emp.role}"
+										id="exampleInputPassword1">
+								</div>
+								<div class="mb-3">
+									<label for="exampleInputPassword1" class="form-label">Password</label>
+									<input type="password" class="form-control" name="password"
+										id="exampleInputPassword1" th:value="${emp.password}">
+								</div>
+
+								<button type="submit" class="btn btn-primary">Update</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>
